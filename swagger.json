@@ -1,0 +1,222 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "test swagger with Operation api",
+    "version": "1.0.0",
+    "title": "test swagger"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http"
+  ],
+  "tags": [
+    {
+      "name": "test1",
+      "description": "test swagger"
+    },
+    {
+      "name": "multi",
+      "description": "result A * B"
+    },
+    {
+      "name": "divide",
+      "description": "result A / B"
+    },
+    {
+      "name": "plus",
+      "description": "result A + B"
+    },
+    {
+      "name": "minus",
+      "description": "result A - B"
+    }
+  ],
+  "paths": {
+    "/test": {
+      "get": {
+        "tags": [
+          "test1"
+        ],
+        "summary": "test get",
+        "description": "testtest",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/test"
+            }
+          }
+        }
+      }
+    },
+    "/eig/{numberA}/{numberB}": {
+      "get": {
+        "tags": [
+          "divide"
+        ],
+        "summary": "return A / B",
+        "description": "intput A , B",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "numberA",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "numberB",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/multiAB": {
+      "post": {
+        "tags": [
+          "multi"
+        ],
+        "summary": "return A * B",
+        "description": "intput A , B",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/numberAB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/result"
+            }
+          }
+        }
+      }
+    },
+    "/FarMinus/{numberA}/{numberB}": {
+      "get": {
+        "tags": [
+          "minus"
+        ],
+        "summary": "return A - B",
+        "description": "intput A , B",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "numberA",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "numberB",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/plusAB": {
+      "post": {
+        "tags": [
+          "plus"
+        ],
+        "summary": "return A + B",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/numberAB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/result"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "test": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "hello"
+        },
+        "result": {
+          "type": "string"
+        }
+      }
+    },
+    "numberAB": {
+      "type": "object",
+      "properties": {
+        "A": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "B": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "properties": {
+        "Math": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

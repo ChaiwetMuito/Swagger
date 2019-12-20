@@ -14,6 +14,21 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use(bodyParser.json());
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// swagger ui
+
+
+// var express = require("express");
+// var app = express();
+// var bodyParser = require("body-parser");
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({  extended: true, useNewUrlParser: true}));
+
+
+
 app.get("/Eig/:A/:B", function (req, res) {//string
     //SHOW INPUT
     var valueA = req.params.A;
@@ -159,6 +174,7 @@ app.post("/plusAB", function (req, res) {
 const port = process.env.PORT || 3000
 app.listen(port, function () {
     console.log(`Server localhost : ${port}`)
+    console.log("Swagger http://localhost:3000/api-docs")
 })
 
 module.exports=app
