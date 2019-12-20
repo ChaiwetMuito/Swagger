@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "title": "test swagger"
   },
-  "host": "https://pat-linebot.herokuapp.com",
+  "host": "localhost:3000",
   "schemes": [
     "http"
   ],
