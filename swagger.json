@@ -5,9 +5,9 @@
     "version": "1.0.0",
     "title": "test swagger"
   },
-  "host": "localhost:3000",
+  "host": "pat-swagger.herokuapp.com",
   "schemes": [
-    "http"
+    "https"
   ],
   "tags": [
     {
