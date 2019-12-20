@@ -4,7 +4,7 @@
   "description": "team b node js express",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "jest --coverage --forceExit"
   },
   "repository": {
