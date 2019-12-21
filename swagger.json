@@ -80,7 +80,10 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation"
+            "description": "successful operation and return result"
+          },
+          "400": {
+            "description": "Invalid number value"
           }
         }
       }
@@ -108,10 +111,13 @@
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "successful operation and return result",
             "schema": {
               "$ref": "#/definitions/result"
             }
+          },
+          "400": {
+            "description": "Invalid number value"
           }
         }
       }
@@ -145,6 +151,9 @@
         "responses": {
           "200": {
             "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid number value"
           }
         }
       }
@@ -176,6 +185,9 @@
             "schema": {
               "$ref": "#/definitions/result"
             }
+          },
+          "400": {
+            "description": "Invalid number value"
           }
         }
       }
@@ -187,10 +199,11 @@
       "properties": {
         "message": {
           "type": "string",
-          "example": "hello"
+          "example": "ผ่านแล้ว"
         },
         "result": {
-          "type": "string"
+          "type": "string",
+          "example": "Hello world Sat Dec 21 2019 03:11:22 GMT+0000 (Coordinated Universal Time)"
         }
       }
     },
@@ -199,11 +212,13 @@
       "properties": {
         "A": {
           "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "example": "0"
         },
         "B": {
           "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "example": "0"
         }
       }
     },
@@ -211,10 +226,12 @@
       "type": "object",
       "properties": {
         "Math": {
-          "type": "string"
+          "type": "string",
+          "example": "A operation B"
         },
         "result": {
-          "type": "string"
+          "type": "string",
+          "example": "result"
         }
       }
     }
